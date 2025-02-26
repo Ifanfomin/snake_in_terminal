@@ -8,6 +8,47 @@ public:
         ypos = floor(map_height / 2);
     }
 
+    void stop_game() {
+        run = false;
+    }
+
+    bool game_running() {
+        return run;
+    }
+
+    void set_way(size_t input_way) {
+        way = input_way;
+    }
+
+    void move(size_t FPS) {
+        if (tick == floor(FPS / 3)) {
+            tick = 0;
+            switch (way) {
+                case 'w':
+                    ypos -= 1;
+                    break;
+            
+                case 's':
+                    ypos += 1;
+                    break;
+                
+                case 'a':
+                    xpos -= 1;
+                    break;
+            
+                case 'd':
+                    xpos += 1;
+                    break;
+                
+                default:
+                    break;
+            }
+        } else {
+            tick++;
+        }
+        
+    }
+
     size_t get_xpos() {
         return xpos;
     }
@@ -16,9 +57,12 @@ public:
         return ypos;
     }
 private:
+    size_t tick = 0; 
     size_t xpos = 0;
     size_t ypos = 0;
     size_t len = 0;
-    size_t vec = 0; // 0 - up, 3 - right, 6 - down, 9 - left
+    char way = 'd';
+    bool run = true;
+    // size_t way = 0; // 0 - up, 3 - right, 6 - down, 9 - left
 };
     
