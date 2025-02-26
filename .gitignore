@@ -1,0 +1,7 @@
+/.idea
+/.vscode
+/Makefile
+/build
+/cmake-build-debug
+/main
+/tests.cpp
