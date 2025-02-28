@@ -3,12 +3,14 @@
 #include <ncurses.h>
 #include "src/map.h"
 #include "src/snake.h"
+#include "src/apple.h"
 #include "src/events.h"
 
 int main(int, char**){
     // Загрузка
     Map map = Map(40, 20);
     Snake snake = Snake(map.get_width(), map.get_height());
+    Apple apple = Apple(map.get_width(), map.get_height());
     char key = ' ';
     bool run = true;
     int FPS = 10;
@@ -22,9 +24,13 @@ int main(int, char**){
         // Действия
         events(event(second / FPS), &snake);
         snake.move(FPS);
+        apple.replace(snake.get_xpos(), snake.get_ypos(), map.get_width(), map.get_height());
         // Отрисовка
         // map.update_map(snake.get_xpos(), snake.get_ypos());
-        map.print_map(snake.get_xpos(), snake.get_ypos());    
+        map.print_map(
+            snake.get_xpos(), snake.get_ypos(), 
+            apple.get_xpos(), apple.get_ypos()
+        );    
     }
     endwin();
 }

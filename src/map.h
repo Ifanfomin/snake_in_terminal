@@ -24,15 +24,17 @@ public:
     //     }
     // }
 
-    void print_map(size_t snake_xpos, size_t snake_ypos) {
+    void print_map(size_t snake_xpos, size_t snake_ypos, size_t apple_xpos, size_t apple_ypos) {
         clear();
         for (size_t i = 0; i < height; i++) {
             for (size_t j = 0; j < width; j++) {
                 if (snake_ypos == i && snake_xpos == j) {
                     printw("%c", 'o');
+                } else if (apple_ypos == i && apple_xpos == j) {
+                    printw("%c", 'a');
                 } else {
                     printw("%c", ' ');
-                }
+                };
                 // printw("%c", map[i][j]);
             }
             printw("\n");
