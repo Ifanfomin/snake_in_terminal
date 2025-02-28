@@ -6,9 +6,9 @@
 class Apple {
 public:
     Apple(size_t width, size_t hieght) {
+        srand(time(0));
         xpos = floor(rand() % (width + 1));
         ypos = floor(rand() % (hieght + 1));
-        srand(time(0));
     }
 
     void replace(size_t snake_xpos, size_t snake_ypos, size_t width, size_t hieght) {
