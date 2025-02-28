@@ -46,7 +46,6 @@ public:
         } else {
             tick++;
         }
-        
     }
 
     size_t get_xpos() {
@@ -63,6 +62,5 @@ private:
     size_t len = 0;
     char way = 'd';
     bool run = true;
-    // size_t way = 0; // 0 - up, 3 - right, 6 - down, 9 - left
 };
     
