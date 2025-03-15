@@ -21,14 +21,14 @@ int main(int, char**){
     noecho();
 
     while (snake.game_running()) {
-        // Действия
-        events(event(second / FPS), &snake);
+
+        /// Действия ///
+        events(event(second / FPS), &snake, &apple, &map);
         snake.move(FPS);
-        apple.replace(snake.get_xpos(), snake.get_ypos(), map.get_width(), map.get_height());
-        // Отрисовка
-        // map.update_map(snake.get_xpos(), snake.get_ypos());
+
+        /// Отрисовка ///
         map.print_map(
-            snake.get_xpos(), snake.get_ypos(), 
+            snake.get_head()->get_xpos(), snake.get_head()->get_ypos(), 
             apple.get_xpos(), apple.get_ypos()
         );    
     }

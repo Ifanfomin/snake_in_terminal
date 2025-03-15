@@ -11,11 +11,9 @@ public:
         ypos = floor(rand() % (hieght + 1));
     }
 
-    void replace(size_t snake_xpos, size_t snake_ypos, size_t width, size_t hieght) {
-        if (snake_xpos == xpos && snake_ypos == ypos) {
-            xpos = floor(rand() % width);
-            ypos = floor(rand() % hieght);
-        };
+    void replace(size_t width, size_t hieght) {
+        xpos = floor(rand() % width);
+        ypos = floor(rand() % hieght);
     }
 
     size_t get_xpos() {
