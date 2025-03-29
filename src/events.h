@@ -10,14 +10,6 @@ char event(float delay) {
 }
 
 void events(char key, Snake *snake, Apple *apple, Map *map) {
-    if (
-        snake->get_head()->get_xpos() == apple->get_xpos() && 
-        snake->get_head()->get_ypos() == apple->get_ypos()
-    ) {
-        
-        apple->replace(map->get_width(), map->get_height());
-    };
-
     switch (key) {
     case 'q':
         snake->stop_game();
@@ -41,4 +33,12 @@ void events(char key, Snake *snake, Apple *apple, Map *map) {
     default:
         break;
     }
+
+    if (
+        snake->get_head()->get_xpos() == apple->get_xpos() && 
+        snake->get_head()->get_ypos() == apple->get_ypos()
+    ) {
+        apple->replace(map->get_width(), map->get_height());
+        snake->eat();
+    };
 }
