@@ -6,8 +6,8 @@
 
 Apple::Apple(size_t width, size_t hieght) {
     srand(time(0));
-    xpos = floor(rand() % (width + 1));
-    ypos = floor(rand() % (hieght + 1));
+    xpos = floor(rand() % (width));
+    ypos = floor(rand() % (hieght));
 }
 
 void Apple::replace(size_t width, size_t hieght) {

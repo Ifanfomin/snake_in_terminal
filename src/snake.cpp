@@ -66,11 +66,11 @@ void Snake::Head::set_pos(size_t map_width, size_t map_height) {
 // Tail //
 Snake::Tail::Tail() = default;
 
-Snake::Tail::Tail(size_t x, size_t y, char w) {
-    xpos = x;
-    ypos = y;
-    way = w;
-}
+// Snake::Tail::Tail(size_t x, size_t y, char w) {
+//     xpos = x;
+//     ypos = y;
+//     way = w;
+// }
 
 // Snake //
 Snake::Snake(size_t map_width, size_t map_height) {
@@ -80,17 +80,13 @@ Snake::Snake(size_t map_width, size_t map_height) {
 void Snake::eat() {
     size_t tail_size = tail.size();
     if (tail_size == 0) {
-        tail_piece = Tail(
-            head.get_xpos(), 
-            head.get_ypos(), 
-            head.get_way()
-        );
+        tail_piece = Tail();
+        tail_piece.set_pos(head.get_xpos(), head.get_ypos()); 
+        tail_piece.set_way(head.get_way());
     } else {
-        tail_piece = Tail(
-            tail[tail_size - 1].get_xpos(), 
-            tail[tail_size - 1].get_ypos(), 
-            tail[tail_size - 1].get_way()
-        );
+        tail_piece = Tail();
+        tail_piece.set_pos(tail[tail_size - 1].get_xpos(), tail[tail_size - 1].get_ypos()); 
+        tail_piece.set_way(tail[tail_size - 1].get_way());
     }
     tail.push_back(tail_piece);
 }

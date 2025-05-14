@@ -8,12 +8,12 @@
 
 int main(int, char**){
     // Загрузка
-    Map map = Map(40, 20);
+    Map map = Map(10, 10);
     Snake snake = Snake(map.get_width(), map.get_height());
     Apple apple = Apple(map.get_width(), map.get_height());
     char key = ' ';
     bool run = true;
-    int FPS = 6;
+    int FPS = 4;
     int second = 10;
 
     initscr();
@@ -34,4 +34,6 @@ int main(int, char**){
         );    
     }
     endwin();
+
+    return 0;
 }
