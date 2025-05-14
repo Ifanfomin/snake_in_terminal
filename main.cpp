@@ -13,7 +13,7 @@ int main(int, char**){
     Apple apple = Apple(map.get_width(), map.get_height());
     char key = ' ';
     bool run = true;
-    int FPS = 4;
+    int FPS = 6;
     int second = 10;
 
     initscr();
@@ -22,11 +22,11 @@ int main(int, char**){
 
     while (snake.game_running()) {
 
-        // /// Действия ///
+        // Действия //
         events(event(second / FPS), &snake, &apple, &map);
         snake.move(FPS);
 
-        /// Отрисовка ///
+        // Отрисовка //
         map.print_map(
             snake.get_head()->get_xpos(), snake.get_head()->get_ypos(), 
             snake.get_tail(),
