@@ -8,7 +8,7 @@
 
 int main(int, char**){
     // Загрузка
-    Map map = Map(40, 20);
+    Map map = Map(10, 10);
     Snake snake = Snake(map.get_width(), map.get_height());
     Apple apple = Apple(map.get_width(), map.get_height());
     char key = ' ';
@@ -22,11 +22,11 @@ int main(int, char**){
 
     while (snake.game_running()) {
 
-        // /// Действия ///
+        // Действия //
         events(event(second / FPS), &snake, &apple, &map);
         snake.move(FPS);
 
-        /// Отрисовка ///
+        // Отрисовка //
         map.print_map(
             snake.get_head()->get_xpos(), snake.get_head()->get_ypos(), 
             snake.get_tail(),
@@ -34,4 +34,6 @@ int main(int, char**){
         );    
     }
     endwin();
+
+    return 0;
 }

@@ -1,29 +1,19 @@
-#pragma once
-#include <random>
-#include <cmath>
-#include <ctime>
+#ifndef APPLE_H
+#define APPLE_H
 
 class Apple {
 public:
-    Apple(size_t width, size_t hieght) {
-        srand(time(0));
-        xpos = floor(rand() % (width + 1));
-        ypos = floor(rand() % (hieght + 1));
-    }
+    Apple(size_t width, size_t hieght);
+    
+    void replace(size_t width, size_t hieght);
 
-    void replace(size_t width, size_t hieght) {
-        xpos = floor(rand() % width);
-        ypos = floor(rand() % hieght);
-    }
+    size_t get_xpos();
+    
+    size_t get_ypos();
 
-    size_t get_xpos() {
-        return xpos;
-    }
-
-    size_t get_ypos() {
-        return ypos;
-    }
 private:
     size_t xpos = 0;
     size_t ypos = 0;
 };
+
+#endif
